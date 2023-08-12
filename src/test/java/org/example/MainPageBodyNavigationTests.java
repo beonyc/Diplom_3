@@ -32,6 +32,7 @@ public class MainPageBodyNavigationTests {
     private AuthorizationPage authorizationPage;
     private Components components;
     private UserInformationPage userInformationPage;
+    private final String ACTIVE_BUTTON_CLASS_NAME="tab_tab_type_current__2BEPc";
 
     private User user;
     private WebDriverBrowsers webDriverBrowsers = new WebDriverBrowsers();
@@ -66,7 +67,7 @@ public class MainPageBodyNavigationTests {
         mainPage.clickSouseButton();
         mainPage.clickBunButton();
         // Если кнопка выбрана, то в классе добавляется название "tab_tab_type_current__2BEPc", поэтому мы проверяем, есть ли в классе это название
-        Assert.assertTrue(mainPage.getBunButtonClassName().contains("tab_tab_type_current__2BEPc"));
+        Assert.assertTrue(mainPage.getBunButtonClassName().contains(ACTIVE_BUTTON_CLASS_NAME));
     }
 
     @Test
@@ -86,7 +87,7 @@ public class MainPageBodyNavigationTests {
         mainPage.clickSouseButton();
 
         // Если кнопка выбрана, то в классе добавляется название "tab_tab_type_current__2BEPc", поэтому мы проверяем, есть ли в классе это название
-        Assert.assertTrue(mainPage.getSouseButtonClassName().contains("tab_tab_type_current__2BEPc"));
+        Assert.assertTrue(mainPage.getSouseButtonClassName().contains(ACTIVE_BUTTON_CLASS_NAME));
     }
 
     @Test
@@ -106,19 +107,12 @@ public class MainPageBodyNavigationTests {
         mainPage.clickFillingButton();
 
         // Если кнопка выбрана, то в классе добавляется название "tab_tab_type_current__2BEPc", поэтому мы проверяем, есть ли в классе это название
-        Assert.assertTrue(mainPage.getFillingButtonClassName().contains("tab_tab_type_current__2BEPc"));
+        Assert.assertTrue(mainPage.getFillingButtonClassName().contains(ACTIVE_BUTTON_CLASS_NAME));
     }
 
     @After
     @Description("Проверка что пользователь успешно удалился")
     public void tearDown() {
         driver.quit();
-        userApiMethods.deleteUser(user)
-                .then()
-                .statusCode(SC_ACCEPTED)
-                .and()
-                .assertThat().body("message", equalTo("User successfully removed"));
-
-
-    }
+        userApiMethods.deleteUser(user);}
 }

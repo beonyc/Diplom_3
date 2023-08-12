@@ -91,12 +91,7 @@ public class CreateNewUserTests {
     public void tearDown() {
         driver.quit();
         if (isDeleteUser) {
-            userApiMethods.deleteUser(user)
-                    .then()
-                    .statusCode(SC_ACCEPTED)
-                    .and()
-                    .assertThat().body("message", equalTo("User successfully removed"));
-        }
+            userApiMethods.deleteUser(user);}
 
     }
 

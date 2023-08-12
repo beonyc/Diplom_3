@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-@Getter
+
 public class MainPage {
     private WebDriver driver;
 

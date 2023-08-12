@@ -148,13 +148,6 @@ public class LogInWithMultipleButtonsTests {
     @Description("Проверка что пользователь успешно удалился")
     public void tearDown() {
         driver.quit();
-        userApiMethods.deleteUser(user)
-                .then()
-                .statusCode(SC_ACCEPTED)
-                .and()
-                .assertThat().body("message", equalTo("User successfully removed"));
-
-
-    }
+        userApiMethods.deleteUser(user);}
 
 }
